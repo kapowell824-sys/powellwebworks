@@ -26,7 +26,7 @@ SECRET_KEY = 'django-insecure-bn)r4ay85-&zxweo2f$8$v@+i4r_*=owgfw57qy!#i1rr=n04-
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['powellwebworks.com', 'www.powellwebworks.com', '127.0.0.1', 'localhost']
+ALLOWED_HOSTS = ['powellwebworks.com', 'www.powellwebworks.com', '.onrender.com', '127.0.0.1', 'localhost']
 
 
 # Application definition
@@ -119,15 +119,9 @@ USE_TZ = True
 
 STATIC_URL = 'static/'
 STATICFILES_DIRS = [BASE_DIR / 'static']
+STATIC_ROOT = BASE_DIR / 'staticfiles'
 
 
-# Email Settings
-EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
-EMAIL_HOST = 'smtp.gmail.com'
-EMAIL_PORT = 587
-EMAIL_USE_TLS = True
-EMAIL_HOST_USER = 'kory@powellwebworks.com'  
-EMAIL_HOST_PASSWORD = os.environ.get('EMAIL_HOST_PASSWORD')    
 # Modern Email Configuration for Django 6.1
 MAILERS = {
     'default': {
@@ -139,4 +133,3 @@ MAILERS = {
         'HOST_PASSWORD': os.environ.get('EMAIL_HOST_PASSWORD'),
     }
 }
-STATIC_ROOT = BASE_DIR / 'staticfiles'
