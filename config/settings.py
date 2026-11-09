@@ -128,9 +128,15 @@ EMAIL_PORT = 587
 EMAIL_USE_TLS = True
 EMAIL_HOST_USER = 'kory@powellwebworks.com'  
 EMAIL_HOST_PASSWORD = os.environ.get('EMAIL_HOST_PASSWORD')    
+# Modern Email Configuration for Django 6.1
 MAILERS = {
     'default': {
-        'BACKEND': 'django.core.mail.backends.console.EmailBackend',
-    },
+        'BACKEND': 'django.core.mail.backends.smtp.EmailBackend',
+        'HOST': 'smtp.gmail.com',
+        'PORT': 587,
+        'USE_TLS': True,
+        'HOST_USER': 'kory@powellwebworks.com',
+        'HOST_PASSWORD': os.environ.get('EMAIL_HOST_PASSWORD'),
+    }
 }
 STATIC_ROOT = BASE_DIR / 'staticfiles'
