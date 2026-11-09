@@ -1,135 +1,223 @@
-{% load static %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Powell Web Works | Custom Web Design in Western OK</title>
-    <script src="https://cdn.tailwindcss.com"></script>
+    <title>Powell Web Works | Custom Web Development</title>
+    <style>
+        /* Base Styles */
+        :root {
+            --primary-color: #2563eb;
+            --secondary-color: #1e40af;
+            --text-dark: #1f2937;
+            --text-light: #6b7280;
+            --bg-light: #f3f4f6;
+            --white: #ffffff;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+        }
+        
+        body {
+            color: var(--text-dark);
+            line-height: 1.6;
+            background-color: var(--bg-light);
+        }
+
+        /* Navigation */
+        header {
+            background-color: var(--white);
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        
+        nav {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 1.5rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--primary-color);
+            text-decoration: none;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(rgba(30, 64, 175, 0.9), rgba(37, 99, 235, 0.9));
+            color: var(--white);
+            padding: 6rem 2rem;
+            text-align: center;
+        }
+        
+        .hero h1 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+        
+        .hero p {
+            font-size: 1.25rem;
+            max-width: 600px;
+            margin: 0 auto 2rem auto;
+            opacity: 0.9;
+        }
+
+        .btn {
+            display: inline-block;
+            background-color: var(--white);
+            color: var(--primary-color);
+            padding: 0.75rem 1.5rem;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: background-color 0.3s;
+        }
+
+        .btn:hover {
+            background-color: #e5e7eb;
+        }
+
+        /* Container for Main Content */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 4rem 2rem;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2rem;
+            margin-bottom: 3rem;
+            color: var(--text-dark);
+        }
+
+        /* Projects Grid */
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .project-card {
+            background: var(--white);
+            border-radius: 8px;
+            padding: 2rem;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+            transition: transform 0.3s;
+            border-top: 4px solid var(--primary-color);
+        }
+
+        .project-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .project-card h3 {
+            font-size: 1.25rem;
+            margin-bottom: 1rem;
+        }
+        
+        .project-card p {
+            color: var(--text-light);
+            margin-bottom: 1.5rem;
+            font-size: 0.95rem;
+        }
+
+        .project-link {
+            color: var(--primary-color);
+            text-decoration: none;
+            font-weight: 600;
+            display: inline-flex;
+            align-items: center;
+        }
+
+        .project-link:hover {
+            text-decoration: underline;
+        }
+
+        /* Services / Technical Steward Section */
+        .services {
+            background-color: var(--white);
+            padding: 4rem 2rem;
+            margin-top: 4rem;
+            text-align: center;
+        }
+        
+        .services p {
+            max-width: 800px;
+            margin: 0 auto;
+            color: var(--text-light);
+            font-size: 1.1rem;
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--text-dark);
+            color: var(--white);
+            text-align: center;
+            padding: 2rem;
+            margin-top: 4rem;
+        }
+    </style>
 </head>
-<body class="bg-slate-50 text-slate-800 font-sans antialiased">
+<body>
 
     <!-- Navigation -->
-    <nav class="bg-white shadow-sm py-4 px-8 sticky top-0 z-50">
-        <div class="max-w-6xl mx-auto flex justify-between items-center">
-            <h1 class="text-2xl font-bold text-blue-900">Powell Web Works</h1>
-            <div class="space-x-6">
-                <a href="#about" class="text-slate-600 hover:text-blue-600 font-medium">About</a>
-                <a href="#portfolio" class="text-slate-600 hover:text-blue-600 font-medium">Work</a>
-                <a href="#contact" class="bg-blue-600 text-white px-5 py-2 rounded-md font-medium hover:bg-blue-700 transition">Get a Quote</a>
-            </div>
-        </div>
-    </nav>
+    <header>
+        <nav>
+            <a href="#" class="logo">Powell Web Works</a>
+            <a href="#booking" class="btn" style="background-color: var(--primary-color); color: white;">Book Consultation</a>
+        </nav>
+    </header>
 
-    <!-- Hero / About Section -->
-    <section id="about" class="max-w-6xl mx-auto px-8 py-20 flex flex-col md:flex-row items-center gap-12">
-        <div class="md:w-1/2">
-            <h2 class="text-4xl font-extrabold text-slate-900 mb-6">Hand-Crafted Websites for Local Businesses.</h2>
-            <p class="text-lg text-slate-600 mb-4 leading-relaxed">
-                Hi, I'm Kory. I'm a full-stack web developer and a senior studying Cybersecurity at American InterContinental University. 
-            </p>
-            <p class="text-lg text-slate-600 mb-4 leading-relaxed">
-                I grew up right here in western Oklahoma. When I'm not writing code, you can usually find me at the local parks or the ole fishing hole in Weatherford with my beautiful wife, Nicole, and our two kids.
-            </p>
-            <p class="text-lg text-slate-600 mb-8 leading-relaxed font-semibold text-blue-800 border-l-4 border-blue-600 pl-4">
-                My promise: Your website is built by me, from scratch. No automated AI generators, no bloated templates. Just clean, aesthetic, fast-loading code designed to bring you more customers.
-            </p>
-            <div class="flex gap-4">
-                <a href="#contact" class="bg-slate-900 text-white px-6 py-3 rounded-md font-medium hover:bg-slate-800 transition">Start Your Project</a>
-            </div>
-        </div>
-        <div class="md:w-1/2 bg-blue-100 rounded-2xl h-80 flex items-center justify-center border-4 border-white shadow-xl">
-            <!-- You can replace this placeholder with a photo of you, your family, or a logo later -->
-            <img src="{% static 'images/logo.png' %}" alt="Powell Web Works Logo" class="w-full h-full object-cover rounded-xl">
-        </div>
+    <!-- Hero Section -->
+    <section class="hero">
+        <h1>Secure, Custom Web Solutions</h1>
+        <p>I build professional, full-stack websites tailored to your business. Complete transparency, dedicated technical stewardship, and 100% digital ownership for my clients.</p>
+        <a href="#projects" class="btn">View My Work</a>
     </section>
 
-    <!-- Portfolio Section -->
-    <section id="portfolio" class="bg-slate-100 py-20">
-        <div class="max-w-6xl mx-auto px-8">
-            <h3 class="text-3xl font-bold text-center mb-12">Recent Projects</h3>
-            <div class="grid md:grid-cols-2 gap-8">
-                
-                <!-- Project 1 -->
-                <div class="bg-white p-6 rounded-xl shadow-sm border border-slate-200">
-                    <h4 class="text-xl font-bold text-slate-900 mb-2">Farm Merchandise E-Commerce</h4>
-                    <p class="text-slate-600 mb-4">A custom digital storefront capable of handling online inventory transactions and automated shipping notifications.</p>
-                    <div class="flex gap-2">
-                        <span class="bg-blue-50 text-blue-700 text-xs px-2 py-1 rounded font-bold">Python</span>
-                        <span class="bg-blue-50 text-blue-700 text-xs px-2 py-1 rounded font-bold">Django</span>
-                        <span class="bg-blue-50 text-blue-700 text-xs px-2 py-1 rounded font-bold">Stripe API</span>
-                    </div>
-                </div>
+    <!-- Projects Section -->
+    <main class="container" id="projects">
+        <h2 class="section-title">Featured Projects</h2>
+        
+        <div class="projects-grid">
+            <!-- Agency Site Project -->
+            <div class="project-card">
+                <h3>Powell Web Works</h3>
+                <p>The official portfolio and digital storefront for my web development agency. Built as a secure, full-stack application deployed on Render, showcasing custom DNS configurations and modern web architecture.</p>
+                <a href="https://powellwebworks.com" class="project-link" target="_blank" rel="noopener">View Live Site &rarr;</a>
+            </div>
 
-                <!-- Project 2 -->
-                <div class="bg-white p-6 rounded-xl shadow-sm border border-slate-200">
-                    <h4 class="text-xl font-bold text-slate-900 mb-2">Tactical Battle Simulator</h4>
-                    <p class="text-slate-600 mb-4">A full-stack, interactive turn-by-turn web application and tactical engine with dynamic database tracking.</p>
-                    <div class="flex gap-2">
-                        <span class="bg-blue-50 text-blue-700 text-xs px-2 py-1 rounded font-bold">Python</span>
-                        <span class="bg-blue-50 text-blue-700 text-xs px-2 py-1 rounded font-bold">PostgreSQL</span>
-                        <span class="bg-blue-50 text-blue-700 text-xs px-2 py-1 rounded font-bold">Render</span>
-                    </div>
-                </div>
-
+            <!-- Pokemon Simulator Project -->
+            <div class="project-card">
+                <h3>Pokémon Champions Tactical Engine</h3>
+                <p>A full-stack Django and PostgreSQL battle simulator. Features a multi-step wizard UI for roster selection, dynamic stat previews, and turn-by-turn battle emulation utilizing the PokéAPI.</p>
+                <a href="https://pokemon-tactical-engine.onrender.com/" class="project-link" target="_blank" rel="noopener">View Live App &rarr;</a>
             </div>
         </div>
+    </main>
+
+    <!-- Service Approach Section -->
+    <section class="services">
+        <h2 class="section-title">My Approach</h2>
+        <p>As your trusted technical steward, I handle the complex coding, database management, and server deployments, while ensuring you retain complete ownership of your domain and hosting accounts. From the initial build to ongoing maintenance retainers, your business's digital security and independence are my top priorities.</p>
     </section>
 
-    <!-- Contact Section -->
-    <section id="contact" class="max-w-4xl mx-auto px-8 py-20">
-        <div class="text-center mb-10">
-            <h3 class="text-3xl font-bold mb-4">Let's Build Something Great</h3>
-            <p class="text-slate-600">Fill out the form below, or reach out directly.</p>
-           <p class="font-bold text-blue-900 mt-2">Phone: 580-330-1006 | Or use the form below to message me directly.</p>
-        </div>
-
-        <div class="bg-white p-8 rounded-xl shadow-lg border border-slate-200">
-            
-            {% if messages %}
-                {% for message in messages %}
-                    <div class="bg-green-100 border border-green-400 text-green-700 px-4 py-3 rounded mb-6 text-center font-bold">
-                        {{ message }}
-                    </div>
-                {% endfor %}
-            {% endif %}
-
-            <form method="POST" action="{% url 'home' %}" class="space-y-6">
-                {% csrf_token %}
-                <div class="grid md:grid-cols-2 gap-6">
-                    <div>
-                        <label class="block text-sm font-medium text-slate-700 mb-1">Business Name</label>
-                        <input type="text" name="business_name" required class="w-full px-4 py-2 border border-slate-300 rounded-md focus:ring-2 focus:ring-blue-600 outline-none">
-                    </div>
-                    <div>
-                        <label class="block text-sm font-medium text-slate-700 mb-1">Your Name</label>
-                        <input type="text" name="contact_name" required class="w-full px-4 py-2 border border-slate-300 rounded-md focus:ring-2 focus:ring-blue-600 outline-none">
-                    </div>
-                </div>
-                <div class="grid md:grid-cols-2 gap-6">
-                    <div>
-                        <label class="block text-sm font-medium text-slate-700 mb-1">Phone Number</label>
-                        <input type="tel" name="phone" required class="w-full px-4 py-2 border border-slate-300 rounded-md focus:ring-2 focus:ring-blue-600 outline-none">
-                    </div>
-                    <div>
-                        <label class="block text-sm font-medium text-slate-700 mb-1">Email Address</label>
-                        <input type="email" name="email" required class="w-full px-4 py-2 border border-slate-300 rounded-md focus:ring-2 focus:ring-blue-600 outline-none">
-                    </div>
-                </div>
-                <div>
-                    <label class="block text-sm font-medium text-slate-700 mb-1">Current Website (if any)</label>
-                    <input type="url" name="current_website" class="w-full px-4 py-2 border border-slate-300 rounded-md focus:ring-2 focus:ring-blue-600 outline-none">
-                </div>
-                <div>
-                    <label class="block text-sm font-medium text-slate-700 mb-1">What do you need help with?</label>
-                    <textarea name="pain_points" rows="4" class="w-full px-4 py-2 border border-slate-300 rounded-md focus:ring-2 focus:ring-blue-600 outline-none"></textarea>
-                </div>
-                <button type="submit" class="w-full bg-blue-600 text-white font-bold py-3 px-4 rounded-md hover:bg-blue-700 transition">
-                    Send Request
-                </button>
-            </form>
-        </div>
-    </section>
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2026 Powell Web Works LLC. Based in Weatherford, Oklahoma.</p>
+    </footer>
 
 </body>
 </html>
