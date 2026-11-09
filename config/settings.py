@@ -43,6 +43,7 @@ INSTALLED_APPS = [
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
+    'whitenoise.middleware.WhiteNoiseMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
@@ -125,10 +126,11 @@ EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 EMAIL_HOST = 'smtp.gmail.com'
 EMAIL_PORT = 587
 EMAIL_USE_TLS = True
-EMAIL_HOST_USER = 'kory@powellwebworks.com'  # Or whatever you named your email
-EMAIL_HOST_PASSWORD = os.environ.get('EMAIL_HOST_PASSWORD')     # Notice: no spaces!
+EMAIL_HOST_USER = 'kory@powellwebworks.com'  
+EMAIL_HOST_PASSWORD = os.environ.get('EMAIL_HOST_PASSWORD')    
 MAILERS = {
     'default': {
         'BACKEND': 'django.core.mail.backends.console.EmailBackend',
     },
 }
+STATIC_ROOT = BASE_DIR / 'staticfiles'
