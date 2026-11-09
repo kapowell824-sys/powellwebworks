@@ -120,6 +120,7 @@ STATIC_ROOT = BASE_DIR / 'staticfiles'
 # Modern Email Configuration for Django 6.1
 # Modern Email Configuration for Django 6.1
 
+
 import os
 
 MAILERS = {
@@ -129,8 +130,12 @@ MAILERS = {
             "host": "smtp.gmail.com",
             "port": 587,
             "use_tls": True,
-            "host_user": os.environ.get("EMAIL_HOST_USER"),
-            "host_password": os.environ.get("EMAIL_HOST_PASSWORD"),
+            "username": os.environ.get("EMAIL_HOST_USER"),
+            "password": os.environ.get("EMAIL_HOST_PASSWORD"),
+            "timeout": 15,
         },
     }
 }
+
+DEFAULT_FROM_EMAIL = "kory@powellwebworks.com"
+
