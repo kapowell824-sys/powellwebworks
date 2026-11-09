@@ -20,9 +20,24 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/6.1/howto/deployment/checklist/
 
-SECRET_KEY = 'django-insecure-bn)r4ay85-&zxweo2f$8$v@+i4r_*=owgfw57qy!#i1rr=n04-'
 
-DEBUG = True
+import os
+
+# Disable debug mode in production
+DEBUG = os.environ.get("DEBUG", "False").strip().lower() == "true"
+
+# Load the secret key securely from Render
+SECRET_KEY = os.environ["SECRET_KEY"]
+
+# Only allow these cookies over HTTPS
+SESSION_COOKIE_SECURE = True
+CSRF_COOKIE_SECURE = True
+
+# HTTPS Security
+SECURE_HSTS_SECONDS = 300
+SECURE_HSTS_INCLUDE_SUBDOMAINS = False
+SECURE_HSTS_PRELOAD = False
+
 
 ALLOWED_HOSTS = ['powellwebworks.com', 'www.powellwebworks.com', '.onrender.com', '127.0.0.1', 'localhost']
 
