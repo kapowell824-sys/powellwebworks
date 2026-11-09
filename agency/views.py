@@ -27,9 +27,9 @@ def home(request):
             send_mail(
                 subject,
                 body,
-                settings.EMAIL_HOST_USER,         # Sends FROM your authenticated business email
-                [settings.EMAIL_HOST_USER],       # Sends TO your business email
-                fail_silently=False,              # Forces an error if it fails so we can see it in the logs
+                'kory@powellwebworks.com',        # Sends FROM your business email
+                ['kory@powellwebworks.com'],      # Sends TO your business email
+                fail_silently=False,              
             )
             
             messages.success(request, "Thanks! I've received your information and will be in touch shortly.")
