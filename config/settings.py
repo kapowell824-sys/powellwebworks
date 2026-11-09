@@ -122,10 +122,10 @@ STATIC_ROOT = BASE_DIR / 'staticfiles'
 MAILERS = {
     'default': {
         'BACKEND': 'django.core.mail.backends.smtp.EmailBackend',
-        'host': 'smtp.gmail.com',
-        'port': 587,
-        'use_tls': True,
-        'host_user': 'kory@powellwebworks.com',
-        'host_password': os.environ.get('EMAIL_HOST_PASSWORD'),
+        'HOST': 'smtp.gmail.com',
+        'PORT': 587,
+        'USE_TLS': True,
+        'HOST_USER': 'kory@powellwebworks.com',
+        'HOST_PASSWORD': os.environ.get('EMAIL_HOST_PASSWORD'),
     }
 }
